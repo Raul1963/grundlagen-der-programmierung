@@ -450,4 +450,3 @@ def intrebare():
 def space():
     t.penup()
     t.forward(30)
-

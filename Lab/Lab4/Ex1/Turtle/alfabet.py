@@ -93,4 +93,3 @@ def read_file(nume):
 #desen()
 #turtle.done()
 
-
