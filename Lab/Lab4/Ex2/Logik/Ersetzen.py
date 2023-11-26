@@ -26,3 +26,4 @@ def Count(filename, wort_zu_ersetzen, ersatzwort):
     f.write(' '.join(l))
 
     return count
+
