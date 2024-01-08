@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2fe78b02-c1d4-487d-a4bd-d689ac8c4f09" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../S8/input" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../S8/main2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../S8/output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../S9/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../S9/data.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../S9/data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../S9/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../S9/main2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../S8/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../S8/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../S8/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../S8/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../S8/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../S8/main.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2YocX0z6lHz2gpuXGnieYZoJUo0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Lab4/Ex3"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2fe78b02-c1d4-487d-a4bd-d689ac8c4f09" name="Changes" comment="" />
+      <created>1701195408930</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701195408930</updated>
+    </task>
+    <servers />
+  </component>
+</project>

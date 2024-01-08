@@ -1,0 +1,642 @@
+Index: ../Ex1/main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../Ex1/main.py b/../Ex1/main.py
+--- a/../Ex1/main.py	(revision c97357543836494c271bbbf682f4fa6caa2d87ab)
++++ b/../Ex1/main.py	(date 1700910253582)
+@@ -1,0 +1,8 @@
++import turtle
++
++from UI.console import ui
++
++def main():
++    ui()
++main()
++turtle.done()
+\ No newline at end of file
+Index: ../Ex1/Turtle/alfabet.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import turtle\r\nfrom Alfabet.a import a\r\nt=turtle.Pen()\r\ndef dict_lit():\r\n    litere={}\r\n    litere[a]=litere[a()]
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../Ex1/Turtle/alfabet.py b/../Ex1/Turtle/alfabet.py
+--- a/../Ex1/Turtle/alfabet.py	(revision c97357543836494c271bbbf682f4fa6caa2d87ab)
++++ b/../Ex1/Turtle/alfabet.py	(date 1700910253576)
+@@ -1,6 +1,96 @@
++import string
+ import turtle
+-from Alfabet.a import a
+-t=turtle.Pen()
++
++
++import Alfabet.a
++from Alfabet.a import *
+ def dict_lit():
++
+     litere={}
+-    litere[a]=litere[a()]
+\ No newline at end of file
++    alfabet=string.ascii_lowercase
++    for litera in alfabet:
++        functie=f'{litera.upper()}'
++        litere[litera]=functie
++    return litere
++
++def desen():
++    litere=dict_lit()
++    word = input("Schreibe ein Wort: ")
++    try:
++        if word==read_dict(word).values():
++            t.ht()
++            turtle.st()
++            read_dict(word)
++            #read_file(word)
++    except word==litere[word]:
++        t.penup()
++        t.goto(-200, 0)
++        for litera in word:
++            t.pendown()
++            if litera=='.':
++                dot()
++            elif litera=='?':
++                intrebare()
++            elif litera=='!':
++                exclamare()
++            elif litera==' ':
++                space()
++            else:
++                functie = litere.get(litera)
++                litere[litera] = functie
++                functie_nume = getattr(Alfabet.a, functie)
++
++                functie_nume()
++            t.penup()
++            t.forward(30)
++
++def read_dict(nume):
++    dict = {}
++    f = open('desene', 'r')
++    for line in f:
++         line.strip()
++         if line.startswith(nume):
++
++             dict[nume]=line[3:-1]
++         print(dict)
++    for value in dict.values():
++        for key in value:
++            if key=='w':
++                turtle.forward(10)
++            if key=='s':
++                turtle.forward(-10)
++            if key=='a':
++                turtle.left(45)
++            if key=='d':
++                turtle.right(45)
++            if key=='f':
++                turtle.penup()
++            if key=='g':
++                turtle.pendown()
++    return dict
++def read_file(nume):
++    #f=open('desene', 'r')
++    #for line in f:
++        #line.strip()
++    for value in read_dict(nume).values():
++        for key in value:
++            if key=='w':
++                turtle.forward(10)
++            if key=='s':
++                turtle.forward(-10)
++            if key=='a':
++                turtle.left(45)
++            if key=='d':
++                turtle.right(45)
++            if key=='f':
++                turtle.penup()
++            if key=='g':
++                turtle.pendown()
++
++#read_dict()
++
++# print(dict_lit())
++#desen()
++#turtle.done()
++
++
+Index: ../Ex2/Logik/Ersetzen.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>def Count(filename, wort_zu_ersetzen, ersatzwort):\r\n    f=open(filename, 'r')\r\n    count=0\r\n    for line in f:\r\n        words=line.split(' ')\r\n        for word in words:\r\n            word=word.strip()\r\n            if wort_zu_ersetzen==word:\r\n                count+=1\r\n                word.replace(wort_zu_ersetzen, ersatzwort)\r\n                word=word\r\n                # f=open(filename,'w')\r\n                # f.write(' '.join(words))\r\n    return count\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../Ex2/Logik/Ersetzen.py b/../Ex2/Logik/Ersetzen.py
+--- a/../Ex2/Logik/Ersetzen.py	(revision c97357543836494c271bbbf682f4fa6caa2d87ab)
++++ b/../Ex2/Logik/Ersetzen.py	(date 1700907968763)
+@@ -1,14 +1,28 @@
+ def Count(filename, wort_zu_ersetzen, ersatzwort):
+     f=open(filename, 'r')
+     count=0
++    l=[]
+     for line in f:
+         words=line.split(' ')
++
+         for word in words:
+-            word=word.strip()
++
++            if word.endswith('\n'):
++                word=word.strip()
++                l.append(word)
++                l.append('\n')
++            else:
++                l.append(word)
+             if wort_zu_ersetzen==word:
+                 count+=1
+                 word.replace(wort_zu_ersetzen, ersatzwort)
+                 word=word
+-                # f=open(filename,'w')
+-                # f.write(' '.join(words))
++                for i in range(len(l)):
++                    if l[i]==wort_zu_ersetzen:
++                        l[i]=ersatzwort
++    open(filename, 'w')
++    # for new_word in l:
++    f=open(filename, 'a')
++    f.write(' '.join(l))
++
+     return count
+Index: ../Ex1/Alfabet/a.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import turtle\r\nt=turtle.Pen()\r\ndef a():\r\n    t.left(60)\r\n    t.forward(100)\r\n    t.right(120)\r\n    t.forward(100)\r\n    t.up()\r\n    t.left(180)\r\n    t.forward(50)\r\n    t.left(60)\r\n    t.down()\r\n    t.forward(50)\r\n\r\na()\r\nturtle.done()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../Ex1/Alfabet/a.py b/../Ex1/Alfabet/a.py
+--- a/../Ex1/Alfabet/a.py	(revision c97357543836494c271bbbf682f4fa6caa2d87ab)
++++ b/../Ex1/Alfabet/a.py	(date 1700910253576)
+@@ -1,16 +1,453 @@
+ import turtle
+ t=turtle.Pen()
+-def a():
++t.st()
++def A():
+     t.left(60)
+     t.forward(100)
+     t.right(120)
+     t.forward(100)
+-    t.up()
+-    t.left(180)
++    t.backward(50)
++    t.right(120)
++    t.forward(50)
++    t.backward(50)
++    t.left(120)
+     t.forward(50)
+     t.left(60)
+-    t.down()
++
++
++def B():
++    t.forward(30)
++    t.circle(25, 180)
++    t.right(180)
++    t.circle(25, 180)
++    t.forward(30)
++    t.left(90)
++    t.forward(100)
++    t.left(90)
++    t.penup()
++    t.forward(50)
++    t.pendown()
++# B()
++# turtle.done()
++
++def C():
++    t.penup()
++    t.forward(50)
++    t.pendown()
++    t.circle(50, -210)
++    t.penup()
++    t.circle(50, -120)
++    t.pendown()
++    t.circle(50, -30)
++    t.penup()
++    t.forward(50)
++    t.pendown()
++
++
++
++def D():
++    t.left(90)
++    t.forward(100)
++    t.left(90)
++    t.circle(50, -180)
++    t.penup()
++    t.forward(50)
++    t.pendown()
++def E():
++    t.forward(40)
++    t.backward(40)
++    t.left(90)
++    t.forward(50)
++    t.right(90)
++    t.forward(30)
++    t.backward(30)
++    t.left(90)
++    t.forward(50)
++    t.right(90)
++    t.forward(40)
++    t.backward(40)
++    t.right(90)
++    t.forward(100)
++    t.left(90)
++    t.penup()
++    t.forward(70)
++    t.pendown()
++
++def F():
++    t.left(90)
++    t.forward(50)
++    t.right(90)
++    t.forward(30)
++    t.backward(30)
++    t.left(90)
++    t.forward(50)
++    t.right(90)
++    t.forward(50)
++    t.backward(50)
++    t.right(90)
++    t.forward(100)
++    t.left(90)
++    t.penup()
++    t.forward(50)
++    t.pendown()
++
++def G():
++    t.forward(50)
++    t.left(90)
++    t.forward(30)
++    t.left(90)
++    t.forward(20)
++    t.backward(20)
++    t.right(90)
++    t.backward(30)
++    t.right(90)
++    t.backward(50)
++    t.left(90)
++    t.forward(70)
++    t.right(180)
++    t.circle(25, -150)
++    t.circle(25, 150)
++    t.forward(70)
++    t.left(90)
++    t.forward(50)
++    t.penup()
++    t.forward(20)
++    t.pendown()
++
++def H():
++    t.left(90)
++    t.forward(100)
++    t.backward(50)
++    t.right(90)
++    t.forward(50)
++    t.left(90)
++    t.forward(50)
++    t.backward(100)
++    t.right(90)
++    t.penup()
++    t.forward(30)
++    t.pendown()
++
++def I():
++    t.left(90)
++    t.forward(70)
++    t.penup()
++    t.forward(25)
++    t.pendown()
++    t.circle(2, 360)
++    t.penup()
++    t.backward(95)
++    t.pendown()
++    t.right(90)
++    t.penup()
++    t.forward(20)
++    t.pendown()
++def J():
++    t.penup()
++    t.forward(30)
++    t.pendown()
++    t.left(90)
++    t.forward(70)
++    t.penup()
++    t.forward(25)
++    t.pendown()
++    t.circle(2, 360)
++    t.penup()
++    t.backward(95)
++    t.pendown()
++    t.right(180)
++    t.circle(-10, 130)
++    t.circle(-10, -130)
++    t.left(90)
++    t.penup()
++    t.forward(30)
++    t.pendown()
++def K():
++    t.left(90)
++    t.forward(100)
++    t.backward(50)
++    t.right(45)
++    t.forward(70)
++    t.backward(70)
++    t.right(90)
++    t.forward(70)
++    t.backward(70)
++    t.right(45)
++    t.forward(50)
++    t.left(90)
++    t.penup()
++    t.forward(70)
++    t.pendown()
++
++def L():
++    t.left(90)
++    t.forward(100)
++    t.backward(100)
++    t.right(90)
++    t.forward(60)
++    t.penup()
++    t.forward(20)
++    t.pendown()
++
++def M():
++    t.left(90)
++    t.forward(100)
++    t.right(135)
++    t.forward(40)
++    t.left(90)
++    t.forward(40)
++    t.right(135)
++    t.forward(100)
++    t.left(90)
++    t.penup()
++    t.forward(20)
++    t.pendown()
++
++
++def N():
++    t.left(90)
++    t.forward(100)
++    t.right(150)
++    t.forward(116)
++    t.right(30)
++    t.backward(100)
++    t.forward(100)
++    t.left(90)
++    t.penup()
++    t.forward(30)
++    t.pendown()
++
++
++def O():
++    t.right(30)
++    t.circle(50, 360)
++    t.left(30)
++    t.penup()
++    t.forward(100)
++    t.pendown()
++
++
++def P():
++    t.left(90)
++    t.forward(100)
++    t.right(90)
++    t.circle(-33, 180)
++    t.circle(-33, -180)
++    t.right(90)
++    t.forward(100)
++    t.left(90)
++    t.penup()
++    t.forward(60)
++    t.pendown()
++def Q():
++    t.right(30)
++    t.circle(50, 360)
++    t.circle(50, 80)
++    t.right(90)
++    t.forward(30)
++    t.backward(60)
++    t.forward(30)
++    t.left(90)
++    t.circle(50, -80)
++    t.left(30)
++    t.penup()
++    t.forward(100)
++    t.pendown()
++
++
++def R():
++    t.left(90)
++    t.forward(100)
++    t.right(90)
++    t.circle(-33, 180)
++    t.left(135)
++    t.forward(50)
++    t.left(45)
++    t.penup()
++    t.forward(30)
++    t.pendown()
++
++
++def S():
++    t.penup()
++    t.forward(40)
++    t.pendown()
++    t.circle(25, 180)
++    t.circle(-25, 220)
++    t.circle(-25, -220)
++    t.circle(25, -180)
++    t.circle(25, -40)
++    t.circle(25, 40)
++    t.penup()
++    t.forward(40)
++    t.pendown()
++
++
++def T():
++    t.penup()
++    t.forward(30)
++    t.pendown()
++    t.left(90)
++    t.forward(100)
++    t.right(90)
++    t.forward(50)
++    t.backward(100)
+     t.forward(50)
++    t.right(90)
++    t.forward(100)
++    t.left(90)
++    t.penup()
++    t.forward(40)
++    t.pendown()
++
++
++def U():
++    t.penup()
++    t.left(90)
++    t.forward(25)
++    t.pendown()
++    t.forward(75)
++    t.backward(75)
++    t.circle(-25, -180)
++    t.right(180)
++    t.forward(75)
++    t.penup()
++    t.backward(100)
++    t.right(90)
++    t.forward(20)
++    t.pendown()
++
++def V():
++    t.penup()
++    t.left(90)
++    t.forward(100)
++    t.right(90)
++    t.pendown()
++    t.right(60)
++    t.forward(110)
++    t.right(60)
++    t.right(180)
++    t.forward(110)
++    t.right(150)
++    t.penup()
++    t.forward(100)
++    t.left(90)
++    t.forward(20)
++    t.pendown()
++
+ 
+-a()
+-turtle.done()
+\ No newline at end of file
++def W():
++    t.penup()
++    t.left(90)
++    t.forward(100)
++    t.right(165)
++    t.pendown()
++    t.forward(110)
++    t.left(155)
++    t.forward(90)
++    t.right(160)
++    t.forward(90)
++    t.left(155)
++    t.forward(110)
++    t.right(165)
++    t.penup()
++    t.forward(100)
++    t.left(90)
++    t.forward(20)
++    t.pendown()
++
++
++def X():
++    t.left(90)
++    t.right(30)
++    t.forward(120)
++    t.backward(120)
++    t.penup()
++    t.left(30)
++    t.forward(104)
++    t.right(150)
++    t.pendown()
++    t.forward(120)
++    t.left(60)
++    t.penup()
++    t.forward(20)
++    t.pendown()
++
++def Y():
++    t.left(90)
++    t.right(30)
++    t.forward(120)
++    t.backward(120)
++    t.penup()
++    t.left(30)
++    t.forward(104)
++    t.right(150)
++    t.pendown()
++    t.forward(60)
++    t.left(120)
++    t.backward(60)
++    t.right(60)
++    t.penup()
++    t.forward(80)
++    t.pendown()
++
++def Z():
++    t.penup()
++    t.left(90)
++    t.forward(100)
++    t.right(90)
++    t.pendown()
++    t.forward(60)
++    t.right(120)
++    t.forward(120)
++    t.right(60)
++    t.backward(60)
++    t.right(180)
++    t.penup()
++    t.forward(20)
++    t.pendown()
++
++def dot():
++    t.circle(2, 360)
++def exclamare():
++    t.circle(2, 360)
++    t.penup()
++    t.left(90)
++    t.forward(20)
++    t.pendown()
++    t.forward(70)
++    t.backward(70)
++    t.penup()
++    t.backward(20)
++    t.right(90)
++    t.forward(20)
++    t.pendown()
++
++def intrebare():
++    t.penup()
++    t.forward(20)
++    t.pendown()
++    t.circle(2, 360)
++    t.penup()
++    t.left(90)
++    t.forward(20)
++    t.pendown()
++    t.forward(20)
++    t.right(45)
++    t.forward(35)
++    t.left(45)
++    t.circle(20, 180)
++    t.circle(20, -180)
++    t.right(45)
++    t.backward(35)
++    t.left(45)
++    t.backward(20)
++    t.penup()
++    t.backward(20)
++    t.right(90)
++    t.forward(20)
++    t.pendown()
++def space():
++    t.penup()
++    t.forward(30)
++

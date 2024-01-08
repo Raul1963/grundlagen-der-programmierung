@@ -1,0 +1,469 @@
+Index: ../../../Seminar/S7/konto.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S7/konto.py b/../../../Seminar/S7/konto.py
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S7/konto.py	
+@@ -0,0 +1,11 @@
++class Konto:
++    def __init__(self, nr: int, administrator: str, betrag: int=0):
++        self.nr=nr
++        self.betrag=betrag
++        self.admin=administrator
++
++    def einazahlen(self, betrag):
++        self.betrag+=betrag
++
++    def auszahlen(self, betrag):
++        self.betrag-=betrag
+Index: ../../../Seminar/S7/test.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S7/test.py b/../../../Seminar/S7/test.py
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S7/test.py	
+@@ -0,0 +1,16 @@
++from statistics import Statistics
++from auto import Auto
++from konto import Konto
++def test_count_color():
++    s=Statistics()
++    autos=[Auto('m1', 'm2', 1000, 'red'),
++    Auto('m1', 'm2', 1000, 'blue'),
++    Auto('m1', 'm2', 1000, 'red')]
++    color='red'
++
++    assert  s.count_color(autos, color)==2
++
++def test_auszahlen():
++    k=Konto(101, 'Peter', 100)
++    k.auszahlen(10)
++    assert k.betrag==90
+Index: ../../../Seminar/S7/statistics.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S7/statistics.py b/../../../Seminar/S7/statistics.py
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S7/statistics.py	
+@@ -0,0 +1,17 @@
++class Statistics:
++    def count_color(self, autos, color):
++        cnt=0
++        for auto in autos:
++            if auto.color==color:
++                cnt+=1
++
++        return cnt
++
++    def avg_year(self, autos, make):
++        s=0
++        c=0
++        for auto in autos:
++            if auto.make==make:
++                c+=1
++                s+=auto.year
++        return s/c
+\ No newline at end of file
+Index: ../../../Seminar/S7/auto.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S7/auto.py b/../../../Seminar/S7/auto.py
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S7/auto.py	
+@@ -0,0 +1,7 @@
++class Auto:
++    def __init__(self, make, model, year, color):
++        self.make=make
++        self.model=model
++        self.year=year
++        self.color=color
++
+Index: ../../../Seminar/S7/frac.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S7/frac.py b/../../../Seminar/S7/frac.py
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S7/frac.py	
+@@ -0,0 +1,15 @@
++from math import gcd
++class Frac:
++    def __init__(self, n, m):
++        self.n=n
++        self.m=m
++
++    def extend(self, k):
++        self.n*=k
++        self.m*=k
++
++    def reduce(self):
++        g=gcd(self.n, self.m)
++        self.n//=g
++        self.m//=g
++
+Index: ../../../Seminar/S8/main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S8/main.py b/../../../Seminar/S8/main.py
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S8/main.py	
+@@ -0,0 +1,20 @@
++def aufgabe2(lista_listei):
++    dic_count={}
++    for l in lista_listei:
++        for el in l:
++            #c=l.count(el)
++            if el in dic_count:
++                dic_count[el]+=1
++
++            else:
++                dic_count[el]=1
++
++
++    l=[]
++    nr=len(lista_listei)
++    for k,v in dic_count.items():
++        if v==nr:
++            l.append(k)
++    return l
++
++print(aufgabe2([[1,2,3,4],[4,5,1],[1,7,8,5,1,4]]))
+\ No newline at end of file
+Index: ../../../Seminar/S7/die.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S7/die.py b/../../../Seminar/S7/die.py
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S7/die.py	
+@@ -0,0 +1,7 @@
++import random
++class Die:
++    def __init__(self,sides):
++        self.sides=sides
++
++    def roll(self):
++        return random.randint(1, self.sides)
+\ No newline at end of file
+Index: ../../../Seminar/S7/main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S7/main.py b/../../../Seminar/S7/main.py
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S7/main.py	
+@@ -0,0 +1,50 @@
++from die import Die
++from frac import Frac
++from test import test_count_color
++from test import test_auszahlen
++from auto import Auto
++from statistics import Statistics
++from konto import Konto
++
++
++def main():
++    # d=Die(6)
++    # roll=d.roll()
++    # while roll!=6:
++    #     print(f'rolled: {roll}')
++    #     roll=d.roll()
++    # print(f'rolled: {roll}')
++
++    #Ex2
++
++    # f1=Frac(4,12)
++    # f1.extend(10)
++    # print(f'{f1.n}/{f1.m}')
++    # f1.reduce()
++    # print(f'{f1.n}/{f1.m}')
++
++    #Ex3
++
++    # s = Statistics()
++    # autos = [Auto('m1', 'm2', 1000, 'red'),
++    #          Auto('m1', 'm2', 1000, 'blue'),
++    #          Auto('m1', 'm2', 1000, 'red')]
++    # color = 'red'
++    # print(f'#red autos={s.count_color(autos,color)}')
++    # print(f'avg year= {s.avg_year(autos, "m1")}')
++
++    #Ex4
++
++    k1=Konto('101A', 'Bob', 10)
++    print(k1.betrag)
++    k2=Konto('101B', 'Dob')
++    print(k2.betrag)
++
++
++
++
++
++
++main()
++test_count_color()
++test_auszahlen()
+\ No newline at end of file
+Index: ../../../Seminar/S8/.idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S8/.idea/vcs.xml b/../../../Seminar/S8/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S8/.idea/vcs.xml	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: ../../../Seminar/S8/.idea/inspectionProfiles/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S8/.idea/inspectionProfiles/profiles_settings.xml b/../../../Seminar/S8/.idea/inspectionProfiles/profiles_settings.xml
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S8/.idea/inspectionProfiles/profiles_settings.xml	
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="USE_PROJECT_PROFILE" value="false" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
+Index: ../../../Seminar/S7/.idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S7/.idea/vcs.xml b/../../../Seminar/S7/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S7/.idea/vcs.xml	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: ../../../Seminar/S7/.idea/inspectionProfiles/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S7/.idea/inspectionProfiles/profiles_settings.xml b/../../../Seminar/S7/.idea/inspectionProfiles/profiles_settings.xml
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S7/.idea/inspectionProfiles/profiles_settings.xml	
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="USE_PROJECT_PROFILE" value="false" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
+Index: ../../../Seminar/S8/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S8/.idea/misc.xml b/../../../Seminar/S8/.idea/misc.xml
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S8/.idea/misc.xml	
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Black">
++    <option name="sdkName" value="Python 3.12 (Code)" />
++  </component>
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12" project-jdk-type="Python SDK" />
++</project>
+\ No newline at end of file
+Index: ../../../Seminar/S8/.idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S8/.idea/modules.xml b/../../../Seminar/S8/.idea/modules.xml
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S8/.idea/modules.xml	
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/S8.iml" filepath="$PROJECT_DIR$/.idea/S8.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: ../../../Seminar/S7/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S7/.idea/misc.xml b/../../../Seminar/S7/.idea/misc.xml
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S7/.idea/misc.xml	
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Black">
++    <option name="sdkName" value="Python 3.12" />
++  </component>
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12" project-jdk-type="Python SDK" />
++</project>
+\ No newline at end of file
+Index: ../../../Seminar/S7/.idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S7/.idea/modules.xml b/../../../Seminar/S7/.idea/modules.xml
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S7/.idea/modules.xml	
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/S7.iml" filepath="$PROJECT_DIR$/.idea/S7.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: ../../../Seminar/S8/.idea/S8.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S8/.idea/S8.iml b/../../../Seminar/S8/.idea/S8.iml
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S8/.idea/S8.iml	
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="jdk" jdkName="Python 3.12" jdkType="Python SDK" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: ../../../Seminar/S7/.idea/S7.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S7/.idea/S7.iml b/../../../Seminar/S7/.idea/S7.iml
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S7/.idea/S7.iml	
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: ../../../Seminar/S8/.idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S8/.idea/.gitignore b/../../../Seminar/S8/.idea/.gitignore
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S8/.idea/.gitignore	
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: ../../../Seminar/S7/.idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../Seminar/S7/.idea/.gitignore b/../../../Seminar/S7/.idea/.gitignore
+new file mode 100644
+--- /dev/null	
++++ b/../../../Seminar/S7/.idea/.gitignore	
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: ../Ex2/meine_datei.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>rot blau ahjfhjf nans rot\r\ngelb hsjdfh rot dskfjk
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../Ex2/meine_datei.txt b/../Ex2/meine_datei.txt
+--- a/../Ex2/meine_datei.txt	
++++ b/../Ex2/meine_datei.txt	
+@@ -1,2 +1,2 @@
+-rot blau ahjfhjf nans rot
+-gelb hsjdfh rot dskfjk
+\ No newline at end of file
++roz blau ahjfhjf nans roz  
++  gelb hsjdfh roz dskfjk
+\ No newline at end of file
+Index: ../Ex3/.idea/Ex3.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../Ex3/.idea/Ex3.iml b/../Ex3/.idea/Ex3.iml
+new file mode 100644
+--- /dev/null	
++++ b/../Ex3/.idea/Ex3.iml	
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
