@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="79ea4d3a-8efe-4767-b11e-4c8ea437439a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../PyCharm Projects/Introducere Proiect/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../PyCharm Projects/Introducere Proiect/.idea/Introducere Proiect.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../PyCharm Projects/Introducere Proiect/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../PyCharm Projects/Introducere Proiect/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../PyCharm Projects/Introducere Proiect/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../PyCharm Projects/Introducere Proiect/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../PyCharm Projects/Introducere Proiect/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main5.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main6.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main7.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab/Lab5/Repository/repo.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab/Lab5/Repository/repo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab/Lab5/UI/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab/Lab5/UI/ui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab/Lab5/bestellung.data" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab/Lab5/bestellung.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab/Lab5/gerichtmenu.data" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab/Lab5/gerichtmenu.data" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2ai54CHPZkD3eEOnWdg1waa82Tg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.main.executor": "Run",
+    "Python.main2.executor": "Run",
+    "Python.main3.executor": "Run",
+    "Python.main4.executor": "Run",
+    "Python.main6.executor": "Run",
+    "Python.main7.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/raulm/Documents/grundlagen de programmierung/Seminar/S13",
+    "settings.editor.selected.configurable": "editor.preferences.import"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="79ea4d3a-8efe-4767-b11e-4c8ea437439a" name="Changes" comment="" />
+      <created>1704788365272</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704788365272</updated>
+    </task>
+    <servers />
+  </component>
+</project>
