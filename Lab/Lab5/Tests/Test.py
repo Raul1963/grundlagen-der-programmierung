@@ -26,6 +26,7 @@ class Test:
     def rechnung_test(self):
         repo=OrderRepo("bestellung_test.data")
         repo.reload()
+        DrinkRepo("getrankmenu_test.data").reload()
         test_kunde = Kunde(Kunde_id=1, name='Raul', adresse='Avram Iancu 6')
         test_dish = gekochterGericht(gericht_id=1, portionsgrosse=100, preis=20, zubereitungszeit=30)
         CookedDishRepo("gerichtmenu_test.data").test_add(test_dish)

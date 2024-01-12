@@ -47,7 +47,7 @@ class UI:
                 self.c.repo.delete(index-1)
             if opt==4:
                 f_id = int(input("Id: "))
-                f_dish = self.c.repo.find_dish(f_id)
+                f_dish = self.c.repo.find_dish([f_id])
                 for fd in f_dish:
                     print(f"Id: {fd.id}, : Portionsgrosse: {fd.portionsgrosse}, Preis: {fd.preis}, Zubereitungszeit: {fd.zubereitungszeit}")
                 new_id = int(input("Id: "))
@@ -76,6 +76,18 @@ class UI:
             if opt==3:
                 index = int(input("Welches Gericht mochten sie loschen: "))
                 self.c.repo.delete(index - 1)
+            if opt==4:
+                f_id = int(input("Id: "))
+                f_drink = self.c.repo.find_drink([f_id])
+                for fd in f_drink:
+                    print(
+                        f"Id: {fd.id}, : Portionsgrosse: {fd.portionsgrosse}, Preis: {fd.preis}, Alkoholgehalt: {fd.alkoholgehalt}")
+                new_id = int(input("Id: "))
+                new_portionsgrosse = input("Portionsgrosse: ")
+                new_preis = input("Preis: ")
+                new_alkoholgehalt = input("Alkoholgehalt: ")
+                self.c.repo.aktualisieren(new_id=new_id, new_portionsgrosse=new_portionsgrosse, new_preis=new_preis,
+                                          new_alkoholgehalt=new_alkoholgehalt, getrank_actualizat=fd.id)
             if opt==5:
                 break
     def run3(self):

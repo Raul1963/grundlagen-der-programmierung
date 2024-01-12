@@ -47,8 +47,9 @@ class Datarepo(ABC):
 class CookedDishRepo(Datarepo):
     def __init__(self, filename):
         Datarepo.__init__(self, filename)
-        self.gerichte = []
         self.test_gerichte=[]
+        self.gerichte = []
+
         if os.path.exists(self.filename):
             self.load(self.gerichte)
 
@@ -84,7 +85,7 @@ class CookedDishRepo(Datarepo):
             gerichte[gericht_actualizat-1].zubereitungszeit=new_zubereitungszeit
             self.reload()
             self.save(gerichte)
-            self.load(gerichte)
+
 
 
 class DrinkRepo(Datarepo):
@@ -92,6 +93,8 @@ class DrinkRepo(Datarepo):
         Datarepo.__init__(self, filename)
         self.test_getranke=[]
         self.getranke = []
+
+
         if os.path.exists(self.filename):
             self.load(self.getranke)
 
@@ -113,6 +116,19 @@ class DrinkRepo(Datarepo):
                 found_drink = list(filter(lambda Getrank: d in (int(x) for x in str(Getrank.id)), drinks))
                 if found_drink:
                     return found_drink
+    def aktualisieren(self, new_id, new_preis,new_portionsgrosse, new_alkoholgehalt,getrank_actualizat):
+        g = []
+        with open(self.filename, 'rb') as f:
+            drinks = pickle.load(f)
+            g.append(drinks)
+        if getrank_actualizat-1 in range(len(drinks)):
+            drinks[getrank_actualizat-1].id=new_id
+            drinks[getrank_actualizat-1].preis=new_preis
+            drinks[getrank_actualizat-1].portionsgrosse=new_portionsgrosse
+            drinks[getrank_actualizat-1].alkoholgehalt=new_alkoholgehalt
+            self.reload()
+            self.save(drinks)
+
 
 
 class CostumerRepo(Datarepo):
@@ -157,7 +173,6 @@ class CostumerRepo(Datarepo):
             kunde[kunde_actualizat-1].adresse=new_adress
             self.reload()
             self.save(kunde)
-            self.load(kunde)
     def delete(self, id):
         kunden=self.kunden
         kunden.pop(id)
